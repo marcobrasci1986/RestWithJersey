@@ -1,6 +1,7 @@
 package com.pluralsight.repository;
 
 import com.pluralsight.model.Activity;
+import com.pluralsight.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,5 +27,30 @@ public class ActivityResourceStub implements ActivityRepository {
         activities.add(activity2);
 
         return activities;
+    }
+
+    @Override
+    public Activity findActivity(String activityId) {
+
+        if(activityId.equals("7777")){
+            return null;
+        }
+        Activity activity1 = new Activity();
+        activity1.setDescription("'Swimming'");
+        activity1.setDuration(55);
+        activity1.setId(activityId);
+
+        User user = new User();
+        user.setId("5678");
+        user.setName("John");
+
+        activity1.setUser(user);
+
+        return activity1;
+    }
+
+    @Override
+    public void create(Activity activity) {
+
     }
 }
